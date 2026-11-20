@@ -1,0 +1,326 @@
+[gd_scene format=3 uid="uid://biu8k1yopl4mk"]
+
+[ext_resource type="Texture2D" uid="uid://brx5483tcey38" path="res://Sprites/Universal/chave_saida.png" id="1_he414"]
+[ext_resource type="Script" uid="uid://ssplfeddqeft" path="res://Scripts/Camera/hud.gd" id="1_sg7ic"]
+[ext_resource type="Texture2D" uid="uid://bxq2nq3ltytyh" path="res://Sprites/Player/slot.png" id="4_wti34"]
+[ext_resource type="Texture2D" uid="uid://c2eoouohtnuti" path="res://Sprites/Player/_pontos.png" id="5_hukin"]
+[ext_resource type="FontFile" uid="uid://k7kqm3yhi5ag" path="res://Fontes/Jersey10-Regular.ttf" id="5_mo3ki"]
+[ext_resource type="Texture2D" uid="uid://b31lm6opmpb6f" path="res://Sprites/Player/head_hud_magia.png" id="6_kiu4g"]
+[ext_resource type="Texture2D" uid="uid://gfh7frxm2xvn" path="res://Sprites/Player/head_hud.png" id="6_umuys"]
+[ext_resource type="Texture2D" uid="uid://81xq7ao0cpjs" path="res://Sprites/Player/1/individual_sheets/head.png" id="7_kiu4g"]
+[ext_resource type="Texture2D" uid="uid://444f7k7p63lm" path="res://Sprites/Player/2/2 - Lil Wiz/head.png" id="8_3yqqy"]
+[ext_resource type="Texture2D" uid="uid://b5tr5vrtkguk0" path="res://Sprites/Player/minimap.png" id="9_3yqqy"]
+[ext_resource type="Shader" uid="uid://v0b0iryamvox" path="res://Tiles/minimapa.gdshader" id="9_5puvn"]
+[ext_resource type="PackedScene" uid="uid://dmg2d176h1qa" path="res://Entidades/Camera/camera.tscn" id="10_o0nrn"]
+[ext_resource type="Texture2D" uid="uid://cxb8tugpvehpo" path="res://Sprites/Player/minimap_back.png" id="11_5puvn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiu4g"]
+atlas = ExtResource("1_he414")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqqy"]
+atlas = ExtResource("1_he414")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11se1"]
+atlas = ExtResource("1_he414")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0nrn"]
+atlas = ExtResource("1_he414")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5puvn"]
+atlas = ExtResource("1_he414")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hukin"]
+atlas = ExtResource("1_he414")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uedn6"]
+atlas = ExtResource("1_he414")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjn40"]
+atlas = ExtResource("1_he414")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l53sn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiu4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11se1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0nrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5puvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hukin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uedn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjn40")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l53sn"]
+atlas = ExtResource("6_kiu4g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smvv"]
+atlas = ExtResource("6_kiu4g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q6y0"]
+atlas = ExtResource("6_kiu4g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crad8"]
+atlas = ExtResource("6_kiu4g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcdlu"]
+atlas = ExtResource("6_kiu4g")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mo3ki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l53sn")
+}],
+"loop": false,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smvv")
+}],
+"loop": false,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q6y0")
+}],
+"loop": false,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crad8")
+}],
+"loop": false,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcdlu")
+}],
+"loop": false,
+"name": &"4",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hukin"]
+shader = ExtResource("9_5puvn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5puvn"]
+shader = ExtResource("9_5puvn")
+
+[node name="hud" type="CanvasLayer" unique_id=1603223781]
+script = ExtResource("1_sg7ic")
+
+[node name="chave" type="AnimatedSprite2D" parent="." unique_id=2040438856]
+modulate = Color(1, 1, 1, 0.49803922)
+position = Vector2(84, 31)
+scale = Vector2(0.7500012, 0.74999994)
+sprite_frames = SubResource("SpriteFrames_l53sn")
+autoplay = "default"
+frame_progress = 0.28303695
+centered = false
+
+[node name="chave_text" type="Label" parent="." unique_id=523625867]
+anchors_preset = -1
+anchor_left = 0.925
+anchor_top = 0.036111113
+anchor_right = 0.975
+anchor_bottom = 0.06944445
+offset_left = -512.0
+offset_top = 2.999999
+offset_right = -512.0
+offset_bottom = 2.999998
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("5_mo3ki")
+theme_override_font_sizes/font_size = 10
+text = "chave"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="conta_text" type="Label" parent="." unique_id=827111444]
+anchors_preset = -1
+anchor_left = 0.925
+anchor_top = 0.036111113
+anchor_right = 0.975
+anchor_bottom = 0.06944445
+offset_left = -472.0
+offset_top = 2.999999
+offset_right = -472.0
+offset_bottom = 2.999998
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("5_mo3ki")
+theme_override_font_sizes/font_size = 10
+text = "conta"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="conta_valor" type="Label" parent="." unique_id=542757660]
+z_index = 2
+anchors_preset = -1
+anchor_left = 0.915625
+anchor_top = 0.033333335
+anchor_right = 0.9609375
+anchor_bottom = 0.072222225
+offset_left = -465.0
+offset_top = 15.999999
+offset_right = -464.0
+offset_bottom = 31.999998
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("5_mo3ki")
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="slot_chave" type="Sprite2D" parent="." unique_id=1485777009]
+z_index = 1
+position = Vector2(96, 43)
+texture = ExtResource("4_wti34")
+
+[node name="slot_pontos" type="Sprite2D" parent="." unique_id=1900300249]
+z_index = 1
+position = Vector2(136, 43)
+texture = ExtResource("5_hukin")
+
+[node name="head" type="Sprite2D" parent="." unique_id=471210713]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(40, 40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_umuys")
+
+[node name="magia" type="AnimatedSprite2D" parent="." unique_id=86610229]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(40.000008, 40)
+scale = Vector2(1.4999996, 1.5)
+sprite_frames = SubResource("SpriteFrames_mo3ki")
+animation = &"0"
+autoplay = "0"
+
+[node name="h1" type="Sprite2D" parent="." unique_id=621915054]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(40, 40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_kiu4g")
+
+[node name="h2" type="Sprite2D" parent="." unique_id=1956533197]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(40, 40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_3yqqy")
+
+[node name="minimapa_hud" type="Sprite2D" parent="." unique_id=1861851897]
+material = SubResource("ShaderMaterial_hukin")
+position = Vector2(584.5, 55.5)
+scale = Vector2(1.8409091, 1.8409091)
+texture = ExtResource("9_3yqqy")
+
+[node name="minimapa_back" type="Sprite2D" parent="." unique_id=132082348]
+z_index = -2
+material = SubResource("ShaderMaterial_hukin")
+position = Vector2(584.5, 55.5)
+scale = Vector2(1.8409091, 1.8409091)
+texture = ExtResource("11_5puvn")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2139383754]
+
+[node name="camera" parent="SubViewport" unique_id=1064083008 instance=ExtResource("10_o0nrn")]
+zoom = Vector2(0.5, 0.5)
+limit_left = 0
+limit_top = 0
+limit_right = 0
+limit_bottom = 0
+
+[node name="minimapa" type="TextureRect" parent="." unique_id=1408247953]
+z_index = -1
+material = SubResource("ShaderMaterial_5puvn")
+offset_left = 557.0
+offset_top = 28.0
+offset_right = 612.0
+offset_bottom = 83.0
+expand_mode = 2
+
+[node name="tempo_text" type="Label" parent="." unique_id=185544647]
+anchors_preset = -1
+anchor_left = 0.925
+anchor_top = 0.036111113
+anchor_right = 0.975
+anchor_bottom = 0.06944445
+offset_left = -104.0
+offset_top = 2.999999
+offset_right = -104.0
+offset_bottom = 2.999998
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("5_mo3ki")
+theme_override_font_sizes/font_size = 10
+text = "TEMPO:"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="tempo_jogo" type="Label" parent="." unique_id=1758072085]
+anchors_preset = -1
+anchor_left = 0.925
+anchor_top = 0.036111113
+anchor_right = 0.9703125
+anchor_bottom = 0.06666667
+offset_left = -104.0
+offset_top = 10.999999
+offset_right = -93.0
+offset_bottom = 26.999998
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("5_mo3ki")
+theme_override_font_sizes/font_size = 24
+text = "00:00"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

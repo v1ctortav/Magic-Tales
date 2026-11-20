@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://jmp41kx2em7j"]
+
+[ext_resource type="Script" uid="uid://br0vouis0a4oi" path="res://Scripts/Player/2/magia_destrutivel.gd" id="1_dhcv1"]
+[ext_resource type="Texture2D" uid="uid://c8334ncj1ljgg" path="res://Sprites/Player/2/2 - Lil Wiz/magia.png" id="2_dhcv1"]
+[ext_resource type="Texture2D" uid="uid://bww33aw5piwl7" path="res://Sprites/Player/2/2 - Lil Wiz/magia_lancada.png" id="3_e68ul"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dhcv1"]
+radius = 7.071068
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e68ul"]
+atlas = ExtResource("2_dhcv1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xqa1"]
+atlas = ExtResource("2_dhcv1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1jlh"]
+atlas = ExtResource("2_dhcv1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mef0u"]
+atlas = ExtResource("2_dhcv1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgm12"]
+atlas = ExtResource("2_dhcv1")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crofs"]
+atlas = ExtResource("2_dhcv1")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_301b4"]
+atlas = ExtResource("3_e68ul")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoijt"]
+atlas = ExtResource("3_e68ul")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0kk4"]
+atlas = ExtResource("3_e68ul")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgm12"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e68ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xqa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1jlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mef0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgm12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crofs")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_301b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoijt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0kk4")
+}],
+"loop": true,
+"name": &"movimentando",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e68ul"]
+radius = 7.0
+
+[node name="magia_destrutivel" type="CharacterBody2D" unique_id=1749072103]
+z_index = 2
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_dhcv1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1194849066]
+shape = SubResource("CircleShape2D_dhcv1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1386265078]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_qgm12")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1431637234 groups=["magia_destruir"]]
+z_index = 2
+collision_layer = 256
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=334882524]
+shape = SubResource("CircleShape2D_e68ul")
+
+[node name="tempo_sumir" type="Timer" parent="." unique_id=1912391348]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="tempo_sumir" to="." method="_on_tempo_sumir_timeout"]

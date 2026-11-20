@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dmh5daoqakecs"]
+
+[ext_resource type="Texture2D" uid="uid://fg5fux2quxux" path="res://Sprites/Puzzles/Botoes/botao1.png" id="1_82yyr"]
+[ext_resource type="Script" uid="uid://bhk7qb7rs3lbh" path="res://Scripts/Puzzles/btn_timer.gd" id="1_gk5jj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk5jj"]
+size = Vector2(36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spnq0"]
+atlas = ExtResource("1_82yyr")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73h58"]
+atlas = ExtResource("1_82yyr")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1r1gn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spnq0")
+}],
+"loop": false,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73h58")
+}],
+"loop": false,
+"name": &"pressionado",
+"speed": 5.0
+}]
+
+[node name="btn_timer" type="Area2D" unique_id=416029421]
+script = ExtResource("1_gk5jj")
+
+[node name="contador" type="Timer" parent="." unique_id=1653014681]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=881047504]
+shape = SubResource("RectangleShape2D_gk5jj")
+
+[node name="animacao" type="AnimatedSprite2D" parent="." unique_id=449951458]
+sprite_frames = SubResource("SpriteFrames_1r1gn")
+animation = &"normal"
+autoplay = "normal"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="contador" to="." method="_on_contador_timeout"]

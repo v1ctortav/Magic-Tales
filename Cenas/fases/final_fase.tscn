@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dj61gp2nb2s1x"]
+
+[ext_resource type="Script" uid="uid://dfupg0l58hftd" path="res://Scripts/Cenario/final_fase.gd" id="1_g4rpo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spfek"]
+
+[node name="final_fase" type="Area2D" unique_id=738537421 groups=["final_fase"]]
+collision_layer = 256
+collision_mask = 3
+script = ExtResource("1_g4rpo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1232745061]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_spfek")
+debug_color = Color(0, 0.649932, 0.13555473, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

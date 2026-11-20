@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://yjoimu82cjkh"]
+
+[ext_resource type="Script" uid="uid://1o562emufj2q" path="res://Scripts/Cenario/bloco_quebravel.gd" id="1_gwneh"]
+[ext_resource type="Texture2D" uid="uid://bmfiordvaddqi" path="res://Sprites/Universal/Blocks (16 x 16).png" id="1_hn35c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwneh"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b32ox"]
+size = Vector2(18, 18)
+
+[node name="bloco_quebravel" type="StaticBody2D" unique_id=1921882538]
+collision_layer = 4
+collision_mask = 447
+script = ExtResource("1_gwneh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1096057606]
+shape = SubResource("RectangleShape2D_gwneh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125216950]
+texture = ExtResource("1_hn35c")
+region_enabled = true
+region_rect = Rect2(144, 16, 16, 16)
+
+[node name="hitbox" type="Area2D" parent="." unique_id=947359155]
+collision_layer = 4
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=639419365]
+shape = SubResource("RectangleShape2D_b32ox")
+debug_color = Color(0.86364603, 0.0006218493, 0.86791295, 0.41960785)
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

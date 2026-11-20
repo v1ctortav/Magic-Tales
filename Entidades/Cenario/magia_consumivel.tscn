@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://onpthi7v4pqp"]
+
+[ext_resource type="Script" uid="uid://bf1vxmj1y54xq" path="res://Scripts/Player/2/magia_consumivel.gd" id="1_dd45c"]
+[ext_resource type="Texture2D" uid="uid://dbuj8md2fbca2" path="res://Sprites/Player/2/2 - Lil Wiz/mana_.png" id="2_dd45c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1owv"]
+radius = 6.0207973
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8g45"]
+atlas = ExtResource("2_dd45c")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1owv"]
+atlas = ExtResource("2_dd45c")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ymxx"]
+atlas = ExtResource("2_dd45c")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h5gn"]
+atlas = ExtResource("2_dd45c")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otf81"]
+atlas = ExtResource("2_dd45c")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7g77"]
+atlas = ExtResource("2_dd45c")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdrev"]
+atlas = ExtResource("2_dd45c")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2fo0"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_a8g45")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_n1owv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ymxx")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_1h5gn")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_otf81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7g77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdrev")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="magia_consumivel" type="Area2D" unique_id=356191717]
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("1_dd45c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1454021407]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_n1owv")
+
+[node name="icon" type="AnimatedSprite2D" parent="." unique_id=1239239145]
+position = Vector2(0, -6)
+scale = Vector2(0.7648809, 0.7648809)
+sprite_frames = SubResource("SpriteFrames_y2fo0")
+autoplay = "default"
+frame_progress = 0.81848896
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

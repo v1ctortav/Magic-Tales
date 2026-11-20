@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://ceduyu4vkmgyh"]
+
+[ext_resource type="Script" uid="uid://bf4cgqexijjae" path="res://Scripts/Puzzles/chave_saida.gd" id="1_e1c0i"]
+[ext_resource type="Texture2D" uid="uid://brx5483tcey38" path="res://Sprites/Universal/chave_saida.png" id="1_modgs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1c0i"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1c0i"]
+atlas = ExtResource("1_modgs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ajc"]
+atlas = ExtResource("1_modgs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qac31"]
+atlas = ExtResource("1_modgs")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnlhy"]
+atlas = ExtResource("1_modgs")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idvn1"]
+atlas = ExtResource("1_modgs")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnbvk"]
+atlas = ExtResource("1_modgs")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wih3a"]
+atlas = ExtResource("1_modgs")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxxhg"]
+atlas = ExtResource("1_modgs")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3nhcx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1c0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ajc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qac31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnlhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idvn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnbvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wih3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxxhg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="chave_saida" type="Area2D" unique_id=214863712]
+collision_layer = 128
+collision_mask = 3
+script = ExtResource("1_e1c0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1440946126]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_e1c0i")
+debug_color = Color(0.73293716, 0.46774608, 0.17095646, 0.41960785)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1729433598]
+position = Vector2(-1.1920929e-07, -8)
+scale = Vector2(0.578125, 0.578125)
+sprite_frames = SubResource("SpriteFrames_3nhcx")
+autoplay = "default"
+frame_progress = 0.84975
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

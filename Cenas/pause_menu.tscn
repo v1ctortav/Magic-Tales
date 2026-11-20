@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://bxf1fd7aek63c"]
+
+[ext_resource type="Script" uid="uid://da5skfa0ulsuc" path="res://Scripts/Camera/pause_menu.gd" id="1_adfkx"]
+[ext_resource type="FontFile" uid="uid://k7kqm3yhi5ag" path="res://Fontes/Jersey10-Regular.ttf" id="1_ddlpt"]
+[ext_resource type="FontFile" uid="uid://dub6p3kha5hlq" path="res://Fontes/PressStart2P-Regular.ttf" id="1_dokru"]
+[ext_resource type="Script" uid="uid://1g1s3e1hojia" path="res://Scripts/Fases/tittle_screen/btn_default.gd" id="2_dokru"]
+[ext_resource type="PackedScene" uid="uid://ccklnswa0okyt" path="res://Cenas/transicao.tscn" id="5_8514u"]
+
+[sub_resource type="Gradient" id="Gradient_dokru"]
+offsets = PackedFloat32Array(0, 0.375, 0.625, 0.875)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 8
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_adfkx"]
+gradient = SubResource("Gradient_dokru")
+
+[sub_resource type="Gradient" id="Gradient_8514u"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 8
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dokru"]
+gradient = SubResource("Gradient_8514u")
+
+[node name="pause_menu" type="CanvasLayer" unique_id=696053808]
+process_mode = 2
+script = ExtResource("1_adfkx")
+
+[node name="Control" type="Control" parent="." unique_id=988066834]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=579773258]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 640.0
+offset_bottom = 192.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1126313815]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dokru")
+text = "JOGO PAUSADO:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="return_btn" type="Button" parent="Control/VBoxContainer" unique_id=2126830426]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_ddlpt")
+text = "Retornar ao jogo"
+flat = true
+script = ExtResource("2_dokru")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer/return_btn" unique_id=1705596458]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(320, 14.124994)
+scale = Vector2(2.5, 26.249985)
+texture = SubResource("GradientTexture1D_adfkx")
+
+[node name="reset_btn" type="Button" parent="Control/VBoxContainer" unique_id=355938638]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_ddlpt")
+text = "Reiniciar fase"
+flat = true
+script = ExtResource("2_dokru")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer/reset_btn" unique_id=1478995098]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(320, 14.124994)
+scale = Vector2(2.5, 26.249985)
+texture = SubResource("GradientTexture1D_adfkx")
+
+[node name="quit_btn" type="Button" parent="Control/VBoxContainer" unique_id=709478274]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_ddlpt")
+text = "Voltar ao menu principal"
+flat = true
+script = ExtResource("2_dokru")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer/quit_btn" unique_id=1177116763]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(320, 14.124994)
+scale = Vector2(2.5, 26.249985)
+texture = SubResource("GradientTexture1D_adfkx")
+
+[node name="fundo" type="Sprite2D" parent="." unique_id=1150040927]
+modulate = Color(0, 0, 0, 0)
+z_index = -1
+position = Vector2(320, 179.99998)
+scale = Vector2(2.5, 360.00003)
+texture = SubResource("GradientTexture1D_dokru")
+
+[node name="transicao" parent="." unique_id=62912112 instance=ExtResource("5_8514u")]
+layer = 2
+visible = false
+
+[connection signal="mouse_entered" from="Control/VBoxContainer/return_btn" to="Control/VBoxContainer/return_btn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/VBoxContainer/return_btn" to="Control/VBoxContainer/return_btn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/return_btn" to="." method="_on_return_btn_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/reset_btn" to="Control/VBoxContainer/reset_btn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/VBoxContainer/reset_btn" to="Control/VBoxContainer/reset_btn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/reset_btn" to="." method="_on_reset_btn_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/quit_btn" to="Control/VBoxContainer/quit_btn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/VBoxContainer/quit_btn" to="Control/VBoxContainer/quit_btn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]

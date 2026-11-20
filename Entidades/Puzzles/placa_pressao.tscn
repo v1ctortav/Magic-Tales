@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bbxy0jy4xi0ae"]
+
+[ext_resource type="Script" uid="uid://djkq8l2dkr7rn" path="res://Scripts/Puzzles/placa_pressao.gd" id="1_3s1xw"]
+[ext_resource type="Texture2D" uid="uid://cx2en8bfqqbe7" path="res://Sprites/Puzzles/Placas_Pressao/placap1.png" id="2_ekutx"]
+[ext_resource type="FontFile" uid="uid://dub6p3kha5hlq" path="res://Fontes/PressStart2P-Regular.ttf" id="3_b65sq"]
+[ext_resource type="Texture2D" uid="uid://dl2g1suoarb" path="res://Sprites/Puzzles/Placas_Pressao/contador.png" id="3_ekutx"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_3s1xw"]
+points = PackedVector2Array(15, 0, 13, -2, -13, -2, -15, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isme5"]
+atlas = ExtResource("2_ekutx")
+region = Rect2(0, 0, 32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfykl"]
+atlas = ExtResource("2_ekutx")
+region = Rect2(32, 0, 32, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps8mi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isme5")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfykl")
+}],
+"loop": true,
+"name": &"pressionada",
+"speed": 5.0
+}]
+
+[node name="placa_pressao" type="StaticBody2D" unique_id=1429672127]
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("1_3s1xw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221214731]
+shape = SubResource("ConvexPolygonShape2D_3s1xw")
+
+[node name="animacao" type="AnimatedSprite2D" parent="." unique_id=205179434]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_ps8mi")
+animation = &"normal"
+
+[node name="hitbox" type="Area2D" parent="." unique_id=848555233]
+position = Vector2(5, -5)
+collision_mask = 19
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox" unique_id=1969271299]
+position = Vector2(-5, 5)
+scale = Vector2(1.09375, 1.25)
+polygon = PackedVector2Array(15.542857, 0, 13.714286, -3.2, -13.714286, -3.2, -15.542857, 0)
+
+[node name="contador" type="Sprite2D" parent="." unique_id=1614405697]
+modulate = Color(0.99607843, 0.9647059, 0.9529412, 0)
+position = Vector2(7.6293945e-06, 4.0000076)
+scale = Vector2(1.0000001, 0.9999984)
+texture = ExtResource("3_ekutx")
+
+[node name="contador_peso" type="Label" parent="contador" unique_id=1829036600]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.000006
+offset_top = -4.0000143
+offset_right = -16.000008
+offset_bottom = -4.000001
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_b65sq")
+theme_override_font_sizes/font_size = 4
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

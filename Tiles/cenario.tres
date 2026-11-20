@@ -1,0 +1,89 @@
+[gd_resource type="TileSet" format=3 uid="uid://bdmdsvyqjxh66"]
+
+[ext_resource type="Texture2D" uid="uid://cgo7bwri2kgym" path="res://Sprites/Universal/TX Village Props.png" id="1_rbv7j"]
+[ext_resource type="Texture2D" uid="uid://ctc2e446uli3t" path="res://Sprites/Universal/escadas_madeira.png" id="2_7huve"]
+[ext_resource type="Texture2D" uid="uid://s8i7hiivl0n1" path="res://Sprites/Fundos/Destruido/Monster_environment_tileset.png" id="3_yj4py"]
+[ext_resource type="Texture2D" uid="uid://cw71lh2o12xfu" path="res://Sprites/Fundos/Destruido/Crimson_environment_tileset.png" id="4_xrfgt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sgx6q"]
+texture = ExtResource("1_rbv7j")
+20:34/size_in_atlas = Vector2i(2, 2)
+20:34/0 = 0
+20:32/size_in_atlas = Vector2i(2, 2)
+20:32/0 = 0
+20:30/size_in_atlas = Vector2i(2, 2)
+20:30/0 = 0
+43:29/size_in_atlas = Vector2i(8, 9)
+43:29/0 = 0
+22:36/size_in_atlas = Vector2i(4, 2)
+22:36/0 = 0
+22:36/0/texture_origin = Vector2i(0, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3wm1"]
+texture = ExtResource("2_7huve")
+texture_region_size = Vector2i(22, 18)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 4)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 2)
+0:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6gdqi"]
+texture = ExtResource("3_yj4py")
+0:0/0 = 0
+0:0/0/z_index = 3
+1:0/0 = 0
+1:0/0/z_index = 3
+2:0/0 = 0
+2:0/0/z_index = 3
+0:1/0 = 0
+0:1/0/z_index = 3
+1:1/0 = 0
+1:1/0/z_index = 3
+2:1/0 = 0
+2:1/0/z_index = 3
+0:2/0 = 0
+0:2/0/z_index = 3
+1:2/0 = 0
+1:2/0/z_index = 3
+2:2/0 = 0
+2:2/0/z_index = 3
+0:3/0 = 0
+0:3/0/z_index = 3
+1:3/0 = 0
+1:3/0/z_index = 3
+2:3/0 = 0
+2:3/0/z_index = 3
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cjmdi"]
+texture = ExtResource("4_xrfgt")
+0:0/0 = 0
+0:0/0/z_index = 3
+1:0/0 = 0
+1:0/0/z_index = 3
+2:0/0 = 0
+2:0/0/z_index = 3
+0:1/0 = 0
+0:1/0/z_index = 3
+1:1/0 = 0
+1:1/0/z_index = 3
+2:1/0 = 0
+2:1/0/z_index = 3
+0:2/0 = 0
+0:2/0/z_index = 3
+1:2/0 = 0
+1:2/0/z_index = 3
+2:2/0 = 0
+2:2/0/z_index = 3
+0:3/0 = 0
+0:3/0/z_index = 3
+1:3/0 = 0
+1:3/0/z_index = 3
+2:3/0 = 0
+2:3/0/z_index = 3
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_sgx6q")
+sources/1 = SubResource("TileSetAtlasSource_v3wm1")
+sources/2 = SubResource("TileSetAtlasSource_6gdqi")
+sources/3 = SubResource("TileSetAtlasSource_cjmdi")

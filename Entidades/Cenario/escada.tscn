@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bi1f5b6eikto"]
+
+[ext_resource type="Script" uid="uid://cbj16n3w2giph" path="res://Scripts/Cenario/escada.gd" id="1_86gsi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22f10"]
+size = Vector2(23, 79.5)
+
+[node name="escada" type="Area2D" unique_id=1954262222 groups=["escadas"]]
+collision_layer = 0
+collision_mask = 7
+script = ExtResource("1_86gsi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1372466570]
+position = Vector2(0, -39.75)
+shape = SubResource("RectangleShape2D_22f10")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

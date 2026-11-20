@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cp55i7j7jxcob"]
+
+[ext_resource type="Script" uid="uid://ficr5cpiqvqg" path="res://Scripts/Puzzles/alavanca.gd" id="1_wel7s"]
+[ext_resource type="Texture2D" uid="uid://d0dn4nv6mbmhb" path="res://Sprites/Universal/alavanca.png" id="2_4lckk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slspp"]
+size = Vector2(34, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g35df"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddo20"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3f38"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7rjo"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg5jw"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bggtg"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gjeg"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fxj5"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajl0a"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi51c"]
+atlas = ExtResource("2_4lckk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4sf7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g35df")
+}],
+"loop": false,
+"name": &"desligado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddo20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3f38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7rjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg5jw")
+}],
+"loop": false,
+"name": &"desligar",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bggtg")
+}],
+"loop": false,
+"name": &"ligado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gjeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fxj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajl0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi51c")
+}],
+"loop": false,
+"name": &"ligar",
+"speed": 16.0
+}]
+
+[node name="alavanca" type="Area2D" unique_id=95979744]
+collision_layer = 256
+collision_mask = 3
+script = ExtResource("1_wel7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=89433546]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_slspp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=748653107]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_f4sf7")
+animation = &"ligar"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

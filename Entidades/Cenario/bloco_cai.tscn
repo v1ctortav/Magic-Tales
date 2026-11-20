@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://br0al18rcbb2c"]
+
+[ext_resource type="Script" uid="uid://dlqvg7gopm4pk" path="res://Scripts/Cenario/bloco_cai.gd" id="1_4avtx"]
+[ext_resource type="Texture2D" uid="uid://bmfiordvaddqi" path="res://Sprites/Universal/Blocks (16 x 16).png" id="2_h86oa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xknu"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq4ag"]
+atlas = ExtResource("2_h86oa")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g203t"]
+atlas = ExtResource("2_h86oa")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maibj"]
+atlas = ExtResource("2_h86oa")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cildc"]
+atlas = ExtResource("2_h86oa")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r2gm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq4ag")
+}],
+"loop": false,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_g203t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maibj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cildc")
+}],
+"loop": false,
+"name": &"quebrar",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4avtx"]
+size = Vector2(16, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=170244132]
+collision_layer = 4
+collision_mask = 51
+script = ExtResource("1_4avtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1077224731]
+shape = SubResource("RectangleShape2D_2xknu")
+
+[node name="tempo_voltar" type="Timer" parent="." unique_id=1710221530]
+one_shot = true
+
+[node name="animacao" type="AnimatedSprite2D" parent="." unique_id=1109263071]
+sprite_frames = SubResource("SpriteFrames_r2gm7")
+animation = &"quebrar"
+autoplay = "normal"
+
+[node name="colisao" type="Area2D" parent="." unique_id=558442755]
+collision_layer = 4
+collision_mask = 51
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colisao" unique_id=1201046381]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_4avtx")
+debug_color = Color(0.9723789, 0, 0.4447597, 0.41960785)
+
+[connection signal="timeout" from="tempo_voltar" to="." method="_on_tempo_voltar_timeout"]
+[connection signal="animation_finished" from="animacao" to="." method="_on_animacao_animation_finished"]
+[connection signal="body_entered" from="colisao" to="." method="_on_colisao_body_entered"]
+[connection signal="body_exited" from="colisao" to="." method="_on_colisao_body_exited"]

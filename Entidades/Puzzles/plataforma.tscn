@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://4l5w1gc6ne3p"]
+
+[ext_resource type="Script" uid="uid://dx4ciqmfvo33p" path="res://Scripts/Puzzles/plataforma.gd" id="1_rxycp"]
+[ext_resource type="Texture2D" uid="uid://dajvjyy6b6cmw" path="res://Sprites/Puzzles/Plataformas/plataforma_madeira.png" id="2_ut4f3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8m2qn"]
+size = Vector2(40, 6)
+
+[node name="plataforma" type="AnimatableBody2D" unique_id=1702775926]
+collision_layer = 32
+collision_mask = 31
+script = ExtResource("1_rxycp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=272486720]
+position = Vector2(0, -0.9999998)
+scale = Vector2(1.25, 1.4999999)
+texture = ExtResource("2_ut4f3")
+
+[node name="alvo" type="Sprite2D" parent="." unique_id=1638568711]
+modulate = Color(1, 1, 1, 0.40784314)
+position = Vector2(0, -52.999996)
+scale = Vector2(1.25, 1.4999999)
+texture = ExtResource("2_ut4f3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=668664748]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_8m2qn")
+one_way_collision = true

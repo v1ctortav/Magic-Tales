@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d0nbpb7a2v48u"]
+
+[ext_resource type="Script" uid="uid://dldwlbbwha8p" path="res://Scripts/Puzzles/conta_consumivel.gd" id="1_aamvl"]
+[ext_resource type="FontFile" uid="uid://k7kqm3yhi5ag" path="res://Fontes/Jersey10-Regular.ttf" id="2_wqqk0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7p25c"]
+radius = 7.0
+
+[node name="conta_consumivel" type="Area2D" unique_id=1972686183]
+collision_layer = 128
+collision_mask = 3
+script = ExtResource("1_aamvl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=676206841]
+shape = SubResource("CircleShape2D_7p25c")
+
+[node name="Label" type="Label" parent="." unique_id=1734266065]
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 5.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("2_wqqk0")
+theme_override_font_sizes/font_size = 14
+text = "+0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

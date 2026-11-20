@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cjbwque47vxyh"]
+
+[ext_resource type="Texture2D" uid="uid://dtu7mvbnsgm4m" path="res://Sprites/Universal/portal.png" id="1_exhkv"]
+[ext_resource type="Script" uid="uid://dkva1bfr4x1at" path="res://Scripts/Puzzles/portal.gd" id="1_hyp0s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj4mm"]
+size = Vector2(32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyp0s"]
+atlas = ExtResource("1_exhkv")
+region = Rect2(0, 0, 186, 294)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mvlb"]
+atlas = ExtResource("1_exhkv")
+region = Rect2(186, 0, 186, 294)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5h0m"]
+atlas = ExtResource("1_exhkv")
+region = Rect2(372, 0, 186, 294)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bqc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyp0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mvlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5h0m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="portal" type="Area2D" unique_id=1187824428]
+collision_layer = 256
+collision_mask = 3
+script = ExtResource("1_hyp0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1733828602]
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_kj4mm")
+debug_color = Color(0.41422093, 0.0015140009, 0.9954285, 0.41960785)
+
+[node name="animacao" type="AnimatedSprite2D" parent="." unique_id=786534753]
+position = Vector2(-5.684342e-14, -31)
+scale = Vector2(0.2123656, 0.21236564)
+sprite_frames = SubResource("SpriteFrames_3bqc8")
+autoplay = "default"
+frame_progress = 0.1768527
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

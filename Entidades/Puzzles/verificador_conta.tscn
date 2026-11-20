@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bv8agf8360e6v"]
+
+[ext_resource type="Script" uid="uid://dorgq5qgocw5i" path="res://Scripts/Puzzles/verificador_conta.gd" id="1_s1m1w"]
+[ext_resource type="Texture2D" uid="uid://dvcujk3jphrn" path="res://Sprites/Puzzles/Portas/verificador_magia.png" id="2_lfw5e"]
+[ext_resource type="FontFile" uid="uid://k7kqm3yhi5ag" path="res://Fontes/Jersey10-Regular.ttf" id="3_56ldg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klynn"]
+size = Vector2(10, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6523g"]
+atlas = ExtResource("2_lfw5e")
+region = Rect2(16, 0, 16, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqwd7"]
+atlas = ExtResource("2_lfw5e")
+region = Rect2(32, 0, 16, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xq6h"]
+atlas = ExtResource("2_lfw5e")
+region = Rect2(0, 0, 16, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gq4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6523g")
+}],
+"loop": false,
+"name": &"liberado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqwd7")
+}],
+"loop": false,
+"name": &"negado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xq6h")
+}],
+"loop": false,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="verificador_conta" type="Area2D" unique_id=1494927960]
+collision_layer = 256
+collision_mask = 3
+script = ExtResource("1_s1m1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392288887]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_klynn")
+
+[node name="animacao" type="AnimatedSprite2D" parent="." unique_id=1628960759]
+position = Vector2(0, -28)
+sprite_frames = SubResource("SpriteFrames_5gq4a")
+animation = &"liberado"
+autoplay = "normal"
+
+[node name="Label" type="Label" parent="." unique_id=1518403506]
+offset_left = -3.0
+offset_top = -49.0
+offset_right = 3.0
+offset_bottom = -39.0
+theme_override_fonts/font = ExtResource("3_56ldg")
+theme_override_font_sizes/font_size = 8
+text = "+0"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
